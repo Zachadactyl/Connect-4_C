@@ -10,10 +10,30 @@
 
 #include <stdio.h>
 #include <time.h>
+#define ROWS 6
+#define COLS 7
+
+/* Function Prototypes */
+void initBoard();
+void printBoard();
+void dropPiece();
+
 
 int main() {
 
 
 
     return 0;
+}
+
+/* Function Definitions */
+
+void startBoard() {
+    printf(" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | ");
+    printf(" |___|___|___|___|___|___|___| ");
+    printf(" |___|___|___|___|___|___|___| ");
+    printf(" |___|___|___|___|___|___|___| ");
+    printf(" |___|___|___|___|___|___|___| ");
+    printf(" |___|___|___|___|___|___|___| ");
+    printf(" |___|___|___|___|___|___|___| ");
 }
