@@ -2,7 +2,9 @@
  * File:        Connect_4.c
  * Authors:     Ashlee Santos, Zachary Tull, Angelo Valencia
  * Purpose:     A beginner-friendly implementation of Connect 4.
- * Date:        3 March 2026
+ * Date:        3 March 2026 
+ * 
+ * Sources of Help: Canvas, W3 Schools 
  */
 
 #include <stdio.h>
