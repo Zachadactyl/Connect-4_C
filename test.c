@@ -35,7 +35,7 @@ int main() {
         /* Logic to switch players based on turn number */
         /* If turn is 0, 2, 4... it is Player 1's turn */
         if (turn % 2 == 0) {
-            playerMark = 'X';
+            playerMark = '\033[1;31mX\033[0m';
             playerNum = 1;
         } else {
             playerMark = 'O';
