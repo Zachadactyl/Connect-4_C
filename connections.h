@@ -90,7 +90,11 @@ int dropPiece(char board[ROWS][COLS], int col, char mark) {
     return 0; /* Column was already full */
 }
 
-
+/* Function : void playGame()
+ * Purpose  : Cnntains all code to play the game
+ * Arguments: none.
+ * Returns  : none.
+*/
 void playGame() {
 char board[ROWS][COLS];
     int choice;
@@ -115,7 +119,7 @@ char board[ROWS][COLS];
             playerNum = 2;
         }
 
-        printf("Player %d (%c), enter column (1-7) or 0 to quit: ", playerNum, playerMark);
+        printf("Player %d (%c), enter column (1-%d) or 0 to quit: ", playerNum, playerMark, COLS);
         
         /* Read user input */
         if (scanf("%d", &choice) != 1) {
