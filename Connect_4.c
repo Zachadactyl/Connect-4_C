@@ -1,15 +1,15 @@
 /*
- * Files:        Connect_4.c, connections.h
+ * File:        Connect_4.c
  * Authors:     Ashlee Santos, Zachary Tull, Angelo Valencia
- * Purpose:     A beginner-friendly implementation of Connect 4 in C (except we used 2D ARRAYS).
- * Date:        15 April 2026 
+ * Purpose:     A beginner-friendly implementation of Connect 4.
+ * Date:        18 April 2026 
  */
 
 #include <stdio.h>
 #include "connections.h"
 
 int main() {
-    /* Everything is handled inside the connections.h for a simple .c file */
+    /* Everything is handled inside the connections.h for simple file */
     startMenu();
     return 0;
 }
