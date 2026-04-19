@@ -25,7 +25,7 @@ Player leaderboard[MAX_PLAYERS];
 /* Function : void initBoard(char board[ROWS][COLS])
  * Purpose  : Loop through every row and column to fill the board with spaces
  * Arguments: char board[ROWS][COLS]
- * Returns  : none.
+ * Returns  : void
 */
 void initBoard(char board[ROWS][COLS]) {
     int r, c;
@@ -39,7 +39,7 @@ void initBoard(char board[ROWS][COLS]) {
 /* Function : void printBoard(char board[ROWS][COLS])
  * Purpose  : Print the current state of the 2D array to the screen
  * Arguments: char board[ROWS][COLS]
- * Returns  : none.
+ * Returns  : void
 */
 void printBoard(char board[ROWS][COLS]) {
     int r, c;
@@ -232,7 +232,7 @@ int getPlayerInfo(void) {
 
 /* Function : void updateMatchStats(int winner, int loser, int isDraw)
  * Purpose  : This function updates players wins/losses to display in the leaderboard and .dat file
- * Arguments: char board[ROWS][COLS], int col, char mark
+ * Arguments: int winner, int loser, int isDraw
  * Returns  : void
 */
 void updateMatchStats(int winner, int loser, int isDraw) {
@@ -274,13 +274,15 @@ void playGame(void) {
     initBoard(board);
 
     while (gameRunning == 1) {
+        /*system("clear");*/
         printBoard(board);
         char mark = (turn % 2 == 0) ? 'X' : 'O';
-        int playerNum = (turn % 2 == 0) ? 1 : 2;
+        Player playerNum;
+        strcpy(playerNum.name, leaderboard[(turn % 2 == 0) ? p1 : p2].name);
         int currentIdx = (turn % 2 == 0) ? p1 : p2;
         int otherIdx = (turn % 2 == 0) ? p2 : p1;
 
-        printf("Player %d (%c), enter column (1-7) or 0 to quit: ", playerNum, mark);
+        printf("%s (%c), enter column (1-7) or 0 to quit: ", playerNum.name, mark);
         
         if (scanf("%d", &choice) != 1) {
             printf("Error: Please enter a number.\n");
@@ -293,11 +295,13 @@ void playGame(void) {
         } else if (choice >= 1 && choice <= COLS) {
             if (dropPiece(board, choice, mark) == 1) {
                 if (checkWin(board, mark)) {
+                    /*system("clear");*/
                     printBoard(board);
-                    printf("\n*** PLAYER %d (%c) WINS! ***\n", playerNum, mark);
+                    printf("\n*** %s (%c) WINS! ***\n", playerNum.name, mark);
                     updateMatchStats(currentIdx, otherIdx, 0);
                     gameRunning = 0;
                 } else if (turn >= (ROWS * COLS) - 1) {
+                    /*system("clear");*/
                     printBoard(board);
                     printf("\n--- It's a draw! ---\n");
                     updateMatchStats(p1, p2, 1);
